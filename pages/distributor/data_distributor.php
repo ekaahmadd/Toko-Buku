@@ -18,7 +18,7 @@
         <div class="box box-primary">
           <div class="box-header">
             <a href="index.php?page=tambah_distributor" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
-            <a href="pages/report.php" target="_blank" class="btn btn-success" role="button" title="Print Data"><i class="glyphicon glyphicon-print"></i> PDF</a>
+            <a href="pages/report2.php" target="_blank" class="btn btn-success" role="button" title="Print Data"><i class="glyphicon glyphicon-print"></i> PDF</a>
 
           </div>
           <div class="box-body table-responsive">

@@ -6,29 +6,30 @@ require_once("../plugins/dompdf/autoload.inc.php");
 use Dompdf\Dompdf;
 
 $dompdf = new Dompdf();
-$id = $_GET['id'];
-$query = mysqli_query($koneksi, "select * from mahasiswa where id_mahasiswa='$id'");
+$query = mysqli_query($koneksi, "SELECT * FROM distributor");
 
-$html = '<center><h3>Daftar Data Mahasiswa</h3></center><hr/><br/>';
+$html = '<center><h3>Daftar Data Distributor</h3></center><hr/><br/>';
 $html .= '<table border="1" width="100%">
   <tr>
-  <th>No</th>
-  <th>Nim</th>
-  <th>Nama</th>
-  <th>Kelas</th>
-  <th>Jurusan</th>
+    <th>No</th>
+    <th>Nama Distributor</th>
+    <th>Alamat</th>
+    <th>Telepon</th>
   </tr>';
+
 $no = 1;
 while ($row = mysqli_fetch_array($query)) {
-  $html .= "<tr><td>" . $no . "</td><td>" . $row['nim'] . "</td><td>" . $row['nama'] . "</td><td>" . $row['kelas'] . "</td><td>" . $row['jurusan'] . "</td></tr>";
+  $html .= "<tr><td>" . $no . "</td><td>" . $row['nama_distributor'] . "</td><td>" . $row['alamat'] . "</td><td>" . $row['telepon'] . "</td></tr>";
   $no++;
 }
 
-$html .= "</html>";
+$html .= "</table>";
+
 $dompdf->loadHtml($html);
 // Setting ukuran dan orientasi kertas
-$dompdf->setPaper('A4', 'potrait');
-// Rendering dari HTML Ke PDF
+$dompdf->setPaper('A4', 'portrait');
+// Rendering dari HTML ke PDF
 $dompdf->render();
 // Melakukan output file Pdf
-$dompdf->stream('laporan_siswa.pdf');
+$dompdf->stream('laporan_distributor.pdf');
+?>
